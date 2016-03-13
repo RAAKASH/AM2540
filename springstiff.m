@@ -1,5 +1,5 @@
 %% Readme    
-% ENTER G value ASAP 
+% 
 n = [27,34];  
 r = [2.85,2.88]/2/1000 ;    % in m
 R = [41.8,31.96]/2/1000;    % in m
@@ -52,3 +52,5 @@ plot(sp3(:,1),sp3(:,2));
 xlabel('Load in Kg');
 ylabel('Deflection in m');
 title('Spring 3 (Nonlinear spring)');
+
+%% strain gauge
