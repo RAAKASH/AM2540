@@ -36,7 +36,7 @@ plot(sp2(:,1),sp2(:,2));
 xlabel('Load in Kg');
 ylabel('Deflection in m');
 title('Spring 2');
-% y = p1*x + p2; ,p1=.00071644 ,p2 =.099512
+% y = p1*x + p2; ,p1=.0071644 ,p2 =.099512
 p1=.0071644;
 kt2 = 1/p1;
 kt = [kt1,kt2];
