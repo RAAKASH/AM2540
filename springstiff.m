@@ -54,3 +54,20 @@ ylabel('Deflection in m');
 title('Spring 3 (Nonlinear spring)');
 
 %% strain gauge
+b = 24.89 /1000; % in m
+h = 6.27/1000 ;  % in m
+lo = 25/100;     % in m
+l1 = 24.6/100;   % in m
+E = 690*10^9 ;   % in Pascals
+del = (0.5:0.5:3)/1000; % in m
+Izz = 1/12 *b*h^3; 
+% Theoretical
+P= del*3*E*Izz/lo^3   ;
+M = P*l1;
+sigma = M/Izz*h/2 ;
+e     = sigma /E;    % theoretical strain
+
+% Experimental
+ep = 10^-6*[58,120,178,234,292,352];
+%Error
+error = e-ep;
