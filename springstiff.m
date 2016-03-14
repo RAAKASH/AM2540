@@ -3,7 +3,7 @@
 n = [27,34];  
 r = [2.85,2.88]/2/1000 ;    % in m
 R = [41.8,31.96]/2/1000;    % in m
-G = 27 *10^9;               % in pascals   (Enter appropriate value)
+G = 20 *10^9;               % in pascals   (Enter appropriate value)
 k = (G/4) *((r.^4)./(R.^3))./n;   % theoretical values for spring 1 ,spring2
 
 %Note : variable kt generated in the workspace is spring constant obtained after linear regression  
@@ -52,6 +52,7 @@ plot(sp3(:,1),sp3(:,2));
 xlabel('Load in Kg');
 ylabel('Deflection in m');
 title('Spring 3 (Nonlinear spring)');
+pause;
 
 %% strain gauge
 b = 24.89 /1000; % in m
@@ -59,7 +60,7 @@ h = 6.27/1000 ;  % in m
 lo = 25/100;     % in m
 l1 = 24.6/100;   % in m
 E = 690*10^9 ;   % in Pascals
-del = (0.5:0.5:3)/1000; % in m
+del = (0:0.5:3)/1000; % in m
 Izz = 1/12 *b*h^3; 
 % Theoretical
 P= del*3*E*Izz/lo^3   ;
@@ -68,6 +69,10 @@ sigma = M/Izz*h/2 ;
 e     = sigma /E;    % theoretical strain
 
 % Experimental
-ep = 10^-6*[58,120,178,234,292,352];
+ep = 10^-6*[0,58,120,178,234,292,352];
 %Error
-error = e-ep;
+error = (e-ep)*10^6;
+plot(del*1000,e,del*1000,ep);
+xlabel('Deflection in mm');
+ylabel('strain in (mm/mm)');
+legend('Theoretical','Experimental');
